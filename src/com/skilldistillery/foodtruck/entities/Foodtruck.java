@@ -12,7 +12,7 @@ public class Foodtruck {
 	public Foodtruck() {
 	}
 
-	public Foodtruck(String name, String foodType, double rating, int id) {
+	public Foodtruck(String name, String foodType, double rating) {
 		super();
 		this.name = name;
 		this.foodType = foodType;
