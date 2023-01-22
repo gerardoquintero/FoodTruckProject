@@ -7,7 +7,6 @@ import com.skilldistillery.foodtruck.entities.Foodtruck;
 public class FoodTruckApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		FoodTruckApp myApp = new FoodTruckApp();
 		Foodtruck[] myTrucks = new Foodtruck[5];
 //		can not compile having using a private modifier on a variable declaration
@@ -17,11 +16,14 @@ public class FoodTruckApp {
 	private void runApp(Foodtruck[] myTrucks) {
 		Scanner sc = new Scanner(System.in);
 		myTrucks = createFiveFoodTrucks(myTrucks, sc);
-		int userMenuSelection = displayMenuAndGetUserSelection(sc);
-		executeUserMenuChoice(userMenuSelection, myTrucks);
+		boolean shouldQuitProgram = false;
+		do {
+			int userMenuSelection = displayMenuAndGetUserSelection(sc);
+			shouldQuitProgram = executeUserMenuChoice(userMenuSelection, myTrucks);
+		} while (!shouldQuitProgram);
 	}
 
-	private void executeUserMenuChoice(int userMenuSelection, Foodtruck[] myTrucks) {
+	private boolean executeUserMenuChoice(int userMenuSelection, Foodtruck[] myTrucks) {
 		switch (userMenuSelection) {
 		case 1:
 			listAllFoodTrucks(myTrucks);
@@ -34,11 +36,12 @@ public class FoodTruckApp {
 			break;
 		case 4:
 			quitProgram();
-			break;
+			return true;
 		default:
 			System.out.println("Please select a valid number. ");
 			break;
 		}
+		return false;
 	}
 
 	private void quitProgram() {
