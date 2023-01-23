@@ -76,7 +76,7 @@ public class FoodTruckApp {
 	private void listAllFoodTrucks(Foodtruck[] myTrucks) {
 		for (int i = 0; i < myTrucks.length; i++) {
 			if (myTrucks[i] != null) {
-				System.out.println(myTrucks[i]);
+				System.out.println(myTrucks[i].toString());
 			}
 		}
 
